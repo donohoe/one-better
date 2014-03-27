@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <link rel="stylesheet" type="text/css" href="css/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
 
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -42,6 +42,58 @@ $ git checkout gh-pages
 
 <h3>
 <a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+
+<hr/>
+
+<style>
+	#bigUnit {
+		border: 1px solid red;
+		width: 300px;
+		height: 300px;
+	}
+
+	#bigUnit div {
+		width: 300px;
+		height: 300px;
+	}
+</style>
+
+<div id="bigUnit">
+	<div class="ad"></div>
+</div>
+
+<div id="whateverUnit">
+	<div class="big"></div>
+	<div class="big"></div>
+</div>
+
+
+<script src="src/app.js?1"></script>
+
+<script type="text/javascript">
+
+	var ads = new OneBetter();
+	
+	ads.set({
+		"debug": true
+	});
+
+	ads.watch('#bigUnit div.ad', {
+		unit: "square"
+	});
+
+	ads.watch('#whateverUnit .big', {
+		unit: "wide"
+	});
+
+	ads.run();	
+</script>
+
+
+<hr/>
+
+
+
 
 <p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
 
@@ -78,6 +130,7 @@ $ git checkout gh-pages
       </div>
     </div>
 
-  
+
+
   </body>
 </html>

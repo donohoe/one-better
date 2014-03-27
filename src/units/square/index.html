@@ -1,0 +1,142 @@
+<html>
+	<head>
+		<title></title>
+	</head>
+	<style>
+		body {
+			background-repeat: repeat;
+			text-align: center;
+			padding: 0;
+			margin:  0;
+			border:  0;
+		}
+		table {
+			height: 100%;
+		}
+		table, img, a {
+			border-collapse: collapse;
+			border-spacing: 0;
+			margin:  0;
+			padding: 0;
+			border:  0;
+			font-size:  100%;
+			width:      100%;
+			font:       inherit;
+			text-align: center;
+			vertical-align: baseline;
+		}
+		img {
+			position: absolute;
+			top:    0;
+			bottom: 0;
+			left:   0;
+			right:  0;
+			display: block;
+			margin: auto;
+		}
+		img {
+			width: 100%;
+			height: 100%;
+			max-width:  250px;
+			max-height: 250px;
+			border: 0;
+
+/*			width:      100%;
+			max-width:  780px;
+			max-height: 155px;
+			border:     0;*/
+		}
+		img.impression {
+			width:   1px;
+			height:  1px;
+			opacity: 0.01;
+			position: absolute;
+		}
+	</style>
+<body>
+	<!-- <table>
+		<tr>
+			<td width="*"></td><td><a id="link" target="_blank" title=""></a></td><td width="*"></td>
+		</tr>
+	</table> -->
+	<a id="link" target="_blank" title=""></a>
+	<script>
+		var List = [
+			{
+				id:   "aclu",
+				name: "ACLU",
+				links: {
+					donate:     "http://bit.ly/donate-aclu",
+					impression: "",
+					original:   "https://www.aclu.org/donate/join-renew-give?ms=one-better"
+				},
+				image: {
+					feature:    "aclu.png",
+					background: "",
+					backgroundColor: "#fafcfc"
+				}
+			},
+			{
+				id:   "doctors-without-borders",
+				name: "Doctors Without Borders",
+				links: {
+					donate:     "http://bit.ly/donate-doctors-without",
+					impression: "",
+					original:   "https://donate.doctorswithoutborders.org/onetime.cfm?src=one-better"
+				},
+				image: {
+					feature:    "doctors-without-borders.png",
+					background: "",
+					backgroundColor: "#ffffff"
+				}
+			},
+			{
+				id:   "women-for-women-int",
+				name: "Women for Women International",
+				links: {
+					donate:     "http://bit.ly/donate-women-for-women",
+					impression: "",
+					original:   "https://give.womenforwomen.org/donate/?src=one-better"
+				},
+				image: {
+					feature:    "women-for-women-int.png",
+					background: "",
+					backgroundColor: "#f5f6e9"
+				}
+			}
+		];
+
+		function makeImpression(url) {
+			if (url.indexOf("http")<0) {
+				return;
+			}
+			var img = document.createElement('IMG');
+			img.className = "impression";
+			img.setAttribute("src", url + "?" + (new Date()).getTime());
+			document.body.appendChild(img);
+		}
+
+		function start(){
+			var item = List[Math.floor(Math.random()*List.length)];
+
+			document.title = document.title + item.name;
+
+			if (item.image.backgroundColor && item.image.backgroundColor.length > 0) {
+				document.body.style.backgroundColor = item.image.backgroundColor;
+			}
+
+			if (item.image.background && item.image.background.length > 0) {
+				document.body.style.backgroundImage = "url('img/" + item.image.background + "')";
+			}
+
+			var el = document.getElementById('link');
+			el.innerHTML = "<img src=\"img/" + item.image.feature + "\" alt=\"" + item.name + "\">"
+			el.href      = item.links.donate;
+			el.title     = "Make a difference today and donate to " + item.name;
+
+			makeImpression(item.links.impression);
+		}
+		window.onload=start;
+	</script>
+</body>
+</html>
