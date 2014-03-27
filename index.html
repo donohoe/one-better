@@ -20,7 +20,7 @@
     <header>
       <div class="inner">
         <h1>one-better</h1>
-        <h2>Temp name for new project</h2>
+        <h2>Donate your blocked ads to charitable causes</h2>
         <a href="https://github.com/donohoe/one-better" class="button"><small>View project on</small>GitHub</a>
       </div>
     </header>
@@ -29,47 +29,72 @@
       <div class="inner clearfix">
         <section id="main-content">
           <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+<a name="intro" class="anchor" href="#intro"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<p>It is estimated that 25% of ads are blocked by people installing browser extensions like AdBlocker. Wouldn't is be nice if we could channel this loss of brand advertising into a positive force for good?</p>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
+<p>This project allows you to setup alternative content that fits into old ad positions when ad-blocking is detected. It runs a random charitable ad with a single-call to action (donate, get involved, etc)</p>
+
+	<h3>
+<a name="example" class="anchor" href="#example"><span class="octicon octicon-link"></span></a>Example</h3>
+
+<pre><code>&lt;script src=&quot;src/app.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+
+	var ads = new OneBetter();
+	
+	ads.set({
+		&quot;debug&quot;: true
+	});
+
+	ads.watch('#bigUnit div.ad', {
+		unit: &quot;square&quot;
+	});
+
+	ads.watch('#whateverUnit .big', {
+		unit: &quot;wide&quot;
+	});
+
+	ads.watch('#leader div', {
+		unit: &quot;leader&quot;
+	});
+	
+	ads.run();	
+&lt;/script&gt;
 </code></pre>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
-
-<hr/>
-
+	<h3>
+<a name="demo" class="anchor" href="#demo"><span class="octicon octicon-link"></span></a>Demo</h3>
 <style>
-	#bigUnit {
+	#example-one {
 		border: 1px solid red;
 		width: 300px;
 		height: 300px;
 	}
 
-	#bigUnit div {
-		width: 300px;
+	#example-one div {
+		width:  300px;
 		height: 300px;
 	}
 </style>
 
-<div id="bigUnit">
+<p><strong>Square</strong> - These are standard square ads that can fill an entire space as necessary</p>
+<div id="example-one">
 	<div class="ad"></div>
 </div>
 
-<div id="whateverUnit">
+<p><b>Wide</b> - These are wide ads, with a fixed height of 180px but 100% width</p>
+<div id="example-two">
 	<div class="big"></div>
+	<div class="this-is-ignored"></div>
+</div>
+
+<p><b>Leader</b> - More in line with Leaderboard or Banner ads so best suited for ad positions that follow that</p>
+<div id="example-three">
 	<div class="big"></div>
 </div>
 
-
 <script src="src/app.js?1"></script>
-
 <script type="text/javascript">
 
 	var ads = new OneBetter();
@@ -78,39 +103,29 @@ $ git checkout gh-pages
 		"debug": true
 	});
 
-	ads.watch('#bigUnit div.ad', {
+	ads.watch('#example-one div.ad', {
 		unit: "square"
 	});
 
-	ads.watch('#whateverUnit .big', {
+	ads.watch('#example-two .big', {
 		unit: "wide"
 	});
 
+	ads.watch('#example-three div', {
+		unit: "leader"
+	});
+	
 	ads.run();	
 </script>
 
-
-<hr/>
-
-
-
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
 <h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+	
+<a name="customize" class="anchor" href="#customize"><span class="octicon octicon-link"></span></a>Customize</h3>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<p>You can host your own version of this and change config variables as necessary. This may be required if AdBlocker rules are updated to block the version hosted here on Github.</p>
 
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
 
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
         </section>
 
         <aside id="sidebar">

@@ -23,6 +23,11 @@
 				"border": "0",
 				"height": "180px",
 				"width":  "100%"
+			},
+			"leader": {
+				"border": "1px solid #ccc",
+				"height": "90px",
+				"width":  "100%"
 			}
 		};
 
